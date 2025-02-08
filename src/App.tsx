@@ -1,5 +1,5 @@
 import { DarkMode, LightMode } from '@/assets/Icons';
-import { Button } from "@/shared/components/button/button";
+import { Button, Input } from "@/shared/components";
 import { useTheme } from "@/shared/hooks/useTheme";
 
 const App = () => {
@@ -12,8 +12,6 @@ const App = () => {
     }}>
       <Button
         text="Toggle Theme"
-        // size={'icon'}
-        // variant={'ghost'}
         onClick={toggleTheme}
         Icon={
           theme === "light" ?
@@ -22,7 +20,15 @@ const App = () => {
             <LightMode />
         }
       />
+      <br />
+      <br />
+      <Input
+        id='search'
+        Icon={<DarkMode />}
+        placeholder='Busca un artista, banda o evento...'
+      />
     </div>
+
   )
 }
 
