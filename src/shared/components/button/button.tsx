@@ -23,7 +23,7 @@ const button = cva(styles.base, {
 });
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof button> {
-    text: string;
+    text?: string;
     Icon?: React.ReactNode;
     loading?: boolean;
 }
@@ -51,7 +51,7 @@ export const Button: React.FC<ButtonProps> = ({
                 :
                 Icon
             }
-            {text}
+            {text && text}
         </button>
     )
 }

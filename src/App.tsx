@@ -12,6 +12,8 @@ const App = () => {
     }}>
       <Button
         text="Toggle Theme"
+        // size={'icon'}
+        // variant={'ghost'}
         onClick={toggleTheme}
         Icon={
           theme === "light" ?
