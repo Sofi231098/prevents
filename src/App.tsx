@@ -1,12 +1,18 @@
-import { useTheme } from "./shared/hooks/useTheme"
+import { Button } from "./shared/components/button/button";
+import { useTheme } from "./shared/hooks/useTheme";
 
 const App = () => {
 
-  const {toggleTheme} = useTheme(); 
+  const { toggleTheme } = useTheme();
 
   return (
-    <div>
-      <button onClick={toggleTheme}>Toggle Theme</button>
+    <div style={{
+      padding: "1rem",
+    }}>
+      <Button
+        text="Toggle Theme"
+        onClick={toggleTheme}
+      />
     </div>
   )
 }
