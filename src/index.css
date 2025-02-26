@@ -1,8 +1,29 @@
 /* TODO: Create variables for dark and light themes */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
 
-  /* COLORS LIGHTMODE */
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ffffff;
+    --foreground: #05101F;
+    --ring: #805eff;
+    --muted: #BCCADC;
+    --secondary: #DCE9F9;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #05101F;
+    --foreground: #ffffff;
+    --ring: #805eff;
+    --muted: #09203E;
+    --secondary: #081C36;
+  }
+}
+
+[data-theme="light"] {
   --background: #ffffff;
   --foreground: #05101F;
   --ring: #805eff;
@@ -16,7 +37,6 @@
   --ring: #805eff;
   --muted: #09203E;
   --secondary: #081C36;
-
 }
 
 * {

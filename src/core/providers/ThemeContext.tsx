@@ -1,6 +1,6 @@
 import { createContext, FC, useEffect, useState } from "react";
 
-const ThemeContext = createContext({ theme: "light", toggleTheme: () => {} });
+const ThemeContext = createContext({ theme: "light", toggleTheme: () => { } });
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -28,7 +28,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div data-theme={theme}>{children}</div>
+      {children}
     </ThemeContext.Provider>
   );
 };
