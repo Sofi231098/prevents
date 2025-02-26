@@ -16,6 +16,9 @@
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --success: #13FF75;
+  --error: #E60228;
+  --warning: #FFF831;
 }
 
 @media (prefers-color-scheme: light) {
