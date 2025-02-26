@@ -7,10 +7,15 @@ interface ThemeProviderProps {
 }
 
 const ThemeProvider:FC<ThemeProviderProps> = ({children}) => {
-    const [theme, setTheme] = useState("light");
+    
+    const [theme, setTheme] = useState(() => {
+        const savedTheme = localStorage.getItem("theme");
+        return savedTheme ? savedTheme : "light";
+    });
 
     useEffect(() => {
         document.body.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
     }, [theme]);
 
     const toggleTheme = () => {
