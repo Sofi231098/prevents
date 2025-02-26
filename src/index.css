@@ -7,7 +7,7 @@
   --foreground: #05101F;
   --ring: #805eff;
   --muted: #BCCADC;
-  --secondary: #DCE9F9; 
+  --secondary: #DCE9F9;
 }
 
 [data-theme="dark"] {
@@ -43,7 +43,7 @@ h6 {
   text-wrap: balance;
 }
 
-body{
+body {
   background-color: var(--background);
   color: var(--foreground);
 }
