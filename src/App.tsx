@@ -10,8 +10,9 @@ const App = () => {
     <div style={{
       padding: "1rem",
     }}>
+      <h1>Prevents</h1>
       <Button
-        text="Toggle Theme"
+        size={'icon'}
         onClick={toggleTheme}
         Icon={
           theme === "light" ?
