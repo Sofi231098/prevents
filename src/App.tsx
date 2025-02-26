@@ -1,6 +1,7 @@
 import { DarkMode, LightMode } from '@/assets/Icons';
-import { Button, Input } from "@/shared/components";
+import { Button } from "@/shared/components";
 import { useTheme } from "@/shared/hooks/useTheme";
+import EventsPage from './modules/events/page';
 
 const App = () => {
 
@@ -23,11 +24,7 @@ const App = () => {
       />
       <br />
       <br />
-      <Input
-        id='search'
-        Icon={<DarkMode />}
-        placeholder='Busca un artista, banda o evento...'
-      />
+      <EventsPage />
     </div>
 
   )
