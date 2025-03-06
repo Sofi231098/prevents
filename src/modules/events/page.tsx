@@ -1,8 +1,8 @@
-import { EventItem } from "./components/event-item/event-item";
+import { EventList } from "./components/event-list/event-list";
 
 const EventsPage = () => {
     return (
-        <EventItem />
+        <EventList/>
     )
 }
 
