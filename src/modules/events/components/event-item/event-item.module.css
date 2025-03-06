@@ -1,5 +1,5 @@
 .item {
-    max-width: 300px;
+    /* max-width: 300px; */
     color: var(--foreground);
 
     &>.imgItem {
@@ -26,8 +26,8 @@
             box-shadow: 0 0 12px 2px var(--ring);
         }
 
-        &>.itemName{
-            color: var(--ring );
+        &>.itemName {
+            color: var(--ring);
             text-shadow: 0 0 2px #7b16ff;
         }
 

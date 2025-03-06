@@ -8,8 +8,10 @@ const App = () => {
   const { toggleTheme, theme } = useTheme();
 
   return (
-    <div style={{
+    <main style={{
       padding: "1rem",
+      maxWidth: "900px",
+      margin: "0 auto"
     }}>
       <h1>Prevents</h1>
       <Button
@@ -22,10 +24,9 @@ const App = () => {
             <LightMode />
         }
       />
-      <br />
-      <br />
+
       <EventsPage />
-    </div>
+    </main>
 
   )
 }

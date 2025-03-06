@@ -1,8 +1,34 @@
 import { EventList } from "./components/event-list/event-list";
+import { EventType } from "./types/event.types";
+
+const listaEventos: EventType[] = [
+    {
+        name: 'Soda Stereo',
+        img: 'https://placehold.co/600x400'
+    },
+    {
+        name: 'Patricio Rey y sus Redonditos de Ricota',
+        img: 'https://placehold.co/600x400'
+    },
+    {
+        name: 'Charly Garcia',
+        img: 'https://placehold.co/600x400'
+    },
+    {
+        name: 'El Mato a un Policia Motorizado',
+        img: 'https://placehold.co/600x400'
+    },
+    {
+        name: 'Ciro y los Persas',
+        img: 'https:/placehold.co/600x400'
+    }
+]
 
 const EventsPage = () => {
     return (
-        <EventList/>
+        <EventList
+            events={listaEventos}
+        />
     )
 }
 
