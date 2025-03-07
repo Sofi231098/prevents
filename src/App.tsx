@@ -1,4 +1,4 @@
-// import EventsPage from './modules/events/page';
+import EventsPage from './modules/events/page';
 import { Footer } from './shared/components/footer/footer';
 import { Header } from './shared/components/header/header';
 
@@ -10,7 +10,7 @@ const App = () => {
       margin: "0 auto",
     }}>
       <Header />
-      {/* <EventsPage /> */}
+      <EventsPage />
       <Footer />
     </main>
 
