@@ -1,31 +1,18 @@
-import { DarkMode, LightMode } from '@/assets/Icons';
-import { Button } from "@/shared/components";
-import { useTheme } from "@/shared/hooks/useTheme";
 import EventsPage from './modules/events/page';
+import { Footer } from './shared/components/footer/footer';
+import { Header } from './shared/components/header/header';
 
 const App = () => {
-
-  const { toggleTheme, theme } = useTheme();
-
   return (
-    <div style={{
+    <main style={{
       padding: "1rem",
+      maxWidth: "900px",
+      margin: "0 auto",
     }}>
-      <h1>Prevents</h1>
-      <Button
-        size={'icon'}
-        onClick={toggleTheme}
-        Icon={
-          theme === "light" ?
-            <DarkMode />
-            :
-            <LightMode />
-        }
-      />
-      <br />
-      <br />
+      <Header />
       <EventsPage />
-    </div>
+      <Footer />
+    </main>
 
   )
 }
