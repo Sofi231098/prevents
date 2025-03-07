@@ -1,0 +1,44 @@
+.footer {
+    display: flex;
+    gap: 1rem;
+    padding-block: 1rem;
+    background:
+        linear-gradient(var(--background), var(--background)) padding-box,
+        linear-gradient(to right, var(--secondary), rgba(0, 0, 0, 0)) border-box;
+    border-top: 1px solid transparent;
+}
+
+.footerItem {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    gap: .5rem;
+
+    &>div {
+        text-align: center;
+
+        & a:last-child {
+            margin-inline-start: .5rem;
+        }
+    }
+
+    &>p {
+        font-weight: 500;
+    }
+}
+
+.icon>svg {
+    width: 2rem;
+    height: 2rem;
+    opacity: .8;
+    fill: var(--foreground);
+    transition: opacity .2s ease;
+
+    & path {
+        fill: var(--foreground);
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+}
