@@ -11,9 +11,9 @@ export const EventItem: FC<EventItemProps> = ({ name, img }) => {
 
     return (
         <article className={styles.item}>
-            <img
-                className={styles.imgItem}
-                width={300}
+            <img 
+            className={styles.imgItem} 
+            width={300}
                 src={img}
                 alt={name}
                 onError={($event) => {

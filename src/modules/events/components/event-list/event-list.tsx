@@ -20,7 +20,7 @@ export const EventList: FC<EventListProps> = ({ events }) => {
             <h2>EVENTOS</h2>
             <div className={styles.list}>
                 {renderEventItems()}
-            </div>
+        </div>
         </section>
     )
 }

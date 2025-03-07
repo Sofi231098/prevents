@@ -1,0 +1,23 @@
+.buttonsContainer{
+    display: flex;
+    justify-content: end;
+    gap: .5rem;
+}
+
+.buttonsContainer ~ .titleContainer {
+    margin-top: .8rem;
+}
+
+.titleContainer {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+
+    &>figure {
+        aspect-ratio: 1/1;
+        background-color: var(--ring);
+        height: 4rem;
+        border-radius: .5rem;
+    }
+}
