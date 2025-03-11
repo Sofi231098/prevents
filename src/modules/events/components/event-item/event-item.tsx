@@ -9,7 +9,7 @@ interface EventItemProps {
     img: string;
 }
 
-export const EventItem: FC<EventItemProps> = ({ id, name, img }) => {
+export const EventItem: FC<EventItemProps>  = ({ id, name, img }) => {
 
     return (
         <Link to={`detail/${id}`} className={styles.link}>
