@@ -1,7 +1,7 @@
 import EventsPage from "@/modules/events/page";
 import UsersPage from "@/modules/users/page";
 import Layout from "@/shared/layouts/layout";
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 
 export const router = createBrowserRouter([
     {
@@ -17,6 +17,10 @@ export const router = createBrowserRouter([
                 path: "profile",
                 element: <UsersPage />,
                 children: [
+                    {
+                        index: true,
+                        element: <Navigate to="my-info" />  
+                    },
                     {
                         path: "my-info",
                         element: <h2>My Info</h2>
