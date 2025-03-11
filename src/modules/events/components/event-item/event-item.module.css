@@ -1,3 +1,7 @@
+.link{
+    text-decoration: none;
+}
+
 .item {
     /* max-width: 300px; */
     color: var(--foreground);
