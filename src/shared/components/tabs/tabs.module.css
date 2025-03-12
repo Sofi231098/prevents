@@ -1,0 +1,34 @@
+.tabsContainer {
+    display: flex;
+    gap: 1rem;
+    margin: 0.5rem 0;
+}
+
+.tab {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+    position: relative; 
+    padding: 0.5rem 1rem;
+}
+
+.tab::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #7b16ff;
+    transition: width 0.3s ease-in-out; 
+}
+
+.tab:hover::after {
+    width: 100%;
+}
+
+.tab:hover:after {
+    width: 100%;
+}
