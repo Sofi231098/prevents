@@ -1,14 +1,16 @@
-.buttonsContainer{
+.buttonsContainer {
     display: flex;
     justify-content: end;
     gap: .5rem;
 }
 
-.buttonsContainer ~ .titleContainer {
+.buttonsContainer~.titleContainer {
     margin-top: .8rem;
 }
 
 .titleContainer {
+    text-decoration: none;
+    color: var(--foreground);
     display: flex;
     gap: 1rem;
     align-items: center;

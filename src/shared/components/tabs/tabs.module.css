@@ -8,9 +8,9 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
-    color: white;
+    color: var(--foreground);
     font-size: 1rem;
-    position: relative; 
+    position: relative;
     padding: 0.5rem 1rem;
 }
 
@@ -19,16 +19,19 @@
     position: absolute;
     bottom: -2px;
     left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #7b16ff;
-    transition: width 0.3s ease-in-out; 
+    width: 100%;
+    background-color: var(--secondary);
+    height: 1px;
+    transition: background-color 300ms ease-in-out, transform 300ms ease-in-out, box-shadow 0.150ms ease-in-out;
 }
 
 .tab:hover::after {
-    width: 100%;
+    background-color: var(--ring);
+    transform: translateY(-1px);
 }
 
-.tab:hover:after {
+.active::after {
     width: 100%;
+    background-color: var(--ring);
+    box-shadow: 0 0 5px var(--ring);
 }

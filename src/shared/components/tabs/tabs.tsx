@@ -17,7 +17,7 @@ export const Tabs: FC<TabProps> = ({ tabs }) => {
         return tabs.map((tab, index) => (
             <button
                 key={index}
-                className={`${styles.tab} ${location.pathname === tab.path ? styles.active : ''}`}
+                className={`${styles.tab} ${location.pathname.includes(tab.path) ? styles.active : ''}`}
                 onClick={() => navigate(tab.path)}
             >
                 {tab.label}

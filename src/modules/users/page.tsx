@@ -15,7 +15,6 @@ const listaTabs = [
 const UsersPage = () => {
     return (
         <>
-            <h1>Profile</h1>
             <Tabs tabs={listaTabs} />
             <Outlet />
         </>

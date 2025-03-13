@@ -2,17 +2,19 @@ import { DarkMode, LightMode, User } from '@/assets/Icons';
 import { useTheme } from '@/shared/hooks/useTheme';
 import { Button } from '../button/button';
 import styles from './header.module.css';
+import { Link, useNavigate } from 'react-router';
 
 export const Header = () => {
 
     const { toggleTheme, theme } = useTheme();
+    const navigate = useNavigate();
 
     return (
         <header>
             <div className={styles.buttonsContainer}>
                 <Button
                     size={'icon'}
-                    onClick={() => { console.log('click') }}
+                    onClick={() => navigate('/profile/my-info')}
                     Icon={<User />}
                 />
                 <Button
@@ -21,7 +23,7 @@ export const Header = () => {
                     Icon={theme === "light" ? <DarkMode /> : <LightMode />}
                 />
             </div>
-            <div className={styles.titleContainer}>
+            <Link to='/' className={styles.titleContainer}>
                 <figure>
 
                 </figure>
@@ -29,7 +31,7 @@ export const Header = () => {
                     <h1 className={styles.title}>Prevents</h1>
                     <p>Entérate de los últimos eventos.</p>
                 </div>
-            </div>
+            </Link>
         </header>
     )
 }
