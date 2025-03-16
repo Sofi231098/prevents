@@ -1,6 +1,5 @@
-import { EventList } from "./components/event-list/event-list";
-import { EventType } from "./types/event.types";
-
+import { EventList } from "../components/event-list/event-list";
+import { EventType } from "../types/event.types"; 
 const listaEventos: EventType[] = [
     {
         id: 1,

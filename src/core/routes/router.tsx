@@ -1,4 +1,5 @@
-import EventsPage from "@/modules/events/page";
+import EventsDetailPage from "@/modules/events/pages/events-detail-page";
+import EventsPage from "@/modules/events/pages/events-page";
 import UsersPage from "@/modules/users/page";
 import Layout from "@/shared/layouts/layout";
 import { createBrowserRouter, Navigate } from "react-router";
@@ -33,7 +34,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "detail/:id",
-                element: <h1>Event</h1>
+                element: <EventsDetailPage />
             }
         ]
     }
