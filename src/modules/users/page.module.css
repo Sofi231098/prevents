@@ -1,0 +1,9 @@
+.container{
+    margin-top: 1rem;
+    display: grid;
+    gap: 1rem;
+
+    &>:first-child{
+        justify-self: center;
+    }
+}

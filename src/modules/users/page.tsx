@@ -1,5 +1,6 @@
 import { Tabs } from "@/shared/components/tabs/tabs";
 import { Outlet } from "react-router";
+import styles from './page.module.css';
 
 const listaTabs = [
     {
@@ -14,10 +15,10 @@ const listaTabs = [
 
 const UsersPage = () => {
     return (
-        <>
+        <section className={styles.container}>
             <Tabs tabs={listaTabs} />
             <Outlet />
-        </>
+        </section>
     )
 }
 
