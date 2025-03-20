@@ -10,7 +10,7 @@ interface EventListProps {
 
 export const EventList: FC<EventListProps> = ({ events }) => {
   const renderEventItems = () => {
-    return events.map((evento, index) => <EventItem key={index} {...evento} />);
+    return events.map((evento, index) => <EventItem key={index} event={evento} />);
   };
 
   return (

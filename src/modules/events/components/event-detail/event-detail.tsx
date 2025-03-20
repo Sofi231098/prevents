@@ -1,29 +1,33 @@
 import { SectionContainer } from "@/shared/components/section-container/section-container";
 import styles from "./event-detail.module.css";
+import { EventType } from "../../types/event.types";
+import { FC } from "react";
+import { format } from "date-fns";
 
-export const EventDetail = () => {
+interface EventDetailProps {
+  event: EventType;
+}
+
+export const EventDetail: FC<EventDetailProps> = ({ event }) => {
   return (
     <>
       <section className={styles.photoContainer}>
         <img
-          src="https://library.sportingnews.com/styles/twitter_card_120x120/s3/2022-06/Real%20Madrid%20Barcelona%20crest%20logo%20badge%20El%20Clasico%20062322.jpg?itok=Q09me5cc"
+          src={event.images[0].url}
           title="foto del evento"
         />
       </section>
       <SectionContainer title="DESCRIPCIÓN">
         <div className={styles.description}>
-          <p>25 de enero del 2025</p>
-          <h3>Barcelona vs Real Madrid</h3>
+          <p>{format(event.dates.start.dateTime, "dd/MM/yyyy")}</p>
+          <h3>{event.name}</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam
-            fugiat voluptatem placeat, sequi ab numquam ullam id eum unde,
-            ratione repellendus eos perferendis? Voluptas minima corrupti
-            voluptatem assumenda a omnis!
+            {event.pleaseNote}
           </p>
           <figure>
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAIlHtpCY9bjsa7kRLvjVBFxlD8fwAU2pC_w&s"
-              title="sector"
+              src={event.seatmap.staticUrl}
+              title={event.seatmap.id}
             />
           </figure>
         </div>

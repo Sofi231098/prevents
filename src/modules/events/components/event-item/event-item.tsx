@@ -2,14 +2,15 @@ import { FC } from 'react';
 import styles from './event-item.module.css';
 import ImageDefault from '@/assets/images/default.webp';
 import { Link } from 'react-router';
+import { EventType } from '../../types/event.types';
 
 interface EventItemProps {
-    id: number;
-    name: string;
-    img: string;
+    event: EventType;
 }
 
-export const EventItem: FC<EventItemProps>  = ({ id, name, img }) => {
+export const EventItem: FC<EventItemProps> = ({ event }) => {
+
+    const { id, name, images } = event;
 
     return (
         <Link to={`detail/${id}`} className={styles.link}>
@@ -17,7 +18,7 @@ export const EventItem: FC<EventItemProps>  = ({ id, name, img }) => {
                 <img
                     className={styles.imgItem}
                     width={300}
-                    src={img}
+                    src={images[0].url}
                     alt={name}
                     onError={($event) => {
                         $event.currentTarget.src = ImageDefault;
