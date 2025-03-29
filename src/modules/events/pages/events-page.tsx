@@ -1,23 +1,15 @@
-import { useEffect, useState } from "react";
-import eventAPI from "../api/event.api";
 import { EventList } from "../components/event-list/event-list";
-import { EventType } from "../types/event.types";
+import { useEventsQuery } from "../queries/events.query";
 
 const EventsPage = () => {
 
-    const [events, setEvents] = useState<EventType[]>([]);
-
-    useEffect(() => {
-        eventAPI.getEvents().then(response => {
-            setEvents(response.data._embedded.events);
-        });
-    }, []);
+    const { data: events, isLoading, error } = useEventsQuery();
 
     return (
-        (events.length === 0) ? <p>Cargando...</p> :
-            <EventList
-                events={events}
-            />
+        (isLoading) ? <p>Cargando...</p> :
+            (error) ? <p>{error.message}</p> :
+                (events) && <EventList events={events._embedded.events} />
+
     )
 }
 

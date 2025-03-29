@@ -1,25 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router';
-import eventAPI from '../api/event.api';
 import { EventDetail } from '../components/event-detail/event-detail';
-import { EventType } from '../types/event.types';
+import useEventStore from '../store/event-store';
 
 const EventsDetailPage = () => {
 
     const params = useParams<{ id: string }>();
-    const [event, setEvent] = useState<EventType | null>(null);
+    const { event, error, isLoading, fetchEventById  }  = useEventStore();
 
     useEffect(() => {
         if (params.id) {
-            eventAPI.getEventById(params.id).then(response => {
-                setEvent(response.data);
-            });
+            fetchEventById(params.id);
         }
-    }, []);
+    }, [params.id, fetchEventById]);
 
     return (
-
-        (event) ? <EventDetail event={event} /> : <p>Cargando...</p>
+        (isLoading) ? <p>Cargando...</p> :
+        (error) ? <p>{error}</p> :
+        (event) && <EventDetail event={event} />
     )
 }
 
