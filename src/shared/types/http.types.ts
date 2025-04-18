@@ -1,5 +1,5 @@
 export interface PaginatedResponse {
-    pagination: PaginationInfo;
+    page: PaginationInfo;
 }
 
 export interface PaginationInfo {

@@ -4,7 +4,6 @@ import { EventDetail } from '../components/event-detail/event-detail';
 import useEventStore from '../store/event-store';
 
 const EventsDetailPage = () => {
-
     const params = useParams<{ id: string }>();
     const { event, error, isLoading, fetchEventById  }  = useEventStore();
 
