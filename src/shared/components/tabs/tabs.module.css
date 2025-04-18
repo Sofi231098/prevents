@@ -1,0 +1,37 @@
+.tabsContainer {
+    display: flex;
+    gap: 1rem;
+    margin: 0.5rem 0;
+}
+
+.tab {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--foreground);
+    font-size: 1rem;
+    position: relative;
+    padding: 0.5rem 1rem;
+}
+
+.tab::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    background-color: var(--secondary);
+    height: 1px;
+    transition: background-color 300ms ease-in-out, transform 300ms ease-in-out, box-shadow 0.150ms ease-in-out;
+}
+
+.tab:hover::after {
+    background-color: var(--ring);
+    transform: translateY(-1px);
+}
+
+.active::after {
+    width: 100%;
+    background-color: var(--ring);
+    box-shadow: 0 0 5px var(--ring);
+}

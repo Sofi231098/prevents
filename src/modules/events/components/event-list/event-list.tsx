@@ -1,26 +1,21 @@
-import styles from './event-list.module.css';
-import { FC } from 'react';
-import { EventType } from '../../types/event.types';
-import { EventItem } from '../event-item/event-item';
+import styles from "./event-list.module.css";
+import { FC } from "react";
+import { EventType } from "../../types/event.types";
+import { EventItem } from "../event-item/event-item";
+import { SectionContainer } from "@/shared/components/section-container/section-container";
 
 interface EventListProps {
-    events: EventType[];
+  events: EventType[];
 }
 
 export const EventList: FC<EventListProps> = ({ events }) => {
+  const renderEventItems = () => {
+    return events.map((evento, index) => <EventItem key={index} event={evento} />);
+  };
 
-    const renderEventItems = () => {
-        return events.map((evento, index) => (
-            <EventItem key={index} {...evento} />
-        ))
-    }
-
-    return (
-        <section className={styles.container}>
-            <h2>EVENTOS</h2>
-            <div className={styles.list}>
-                {renderEventItems()}
-        </div>
-        </section>
-    )
-}
+  return (
+    <SectionContainer title="EVENTOS">
+      <div className={styles.list}>{renderEventItems()}</div>
+    </SectionContainer>
+  );
+};
