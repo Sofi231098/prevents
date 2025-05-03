@@ -1,9 +1,11 @@
+import { useCallback, useEffect } from "react";
 import ReactPaginate from "react-paginate";
-import { EventList } from "../components/event-list/event-list";
+import { NumberParam, useQueryParam } from "use-query-params";
+import { EventList, EventListSkeleton } from "../components/event-list/event-list";
 import { useEventsQuery } from "../queries/events.query";
 import styles from './paginate.module.css';
-import { NumberParam, useQueryParam } from "use-query-params";
-import { useCallback, useEffect } from "react";
+import { Input } from "@/shared/components";
+import { XIcon } from "@/assets/Icons";
 
 const EventsPage = () => {
     const { data: events, isLoading, error, isSuccess } = useEventsQuery();
@@ -21,29 +23,35 @@ const EventsPage = () => {
 
     return (
         <>
-            <EventList
-                events={events?._embedded.events || []}
-                isLoading={isLoading}
-                isSuccess={isSuccess}
-                error={error}
-            />
-            <ReactPaginate
-                initialPage={currentPage ?? 0}
-                className={styles.pagination}
-                nextLinkClassName={styles.next}
-                previousLinkClassName={styles.previous}
-                pageLinkClassName={styles.page}
-                activeLinkClassName={styles.activePage}
-                disabledLinkClassName={styles.disabledPage}
+            <Input
+                placeholder='Search...'
+                Icon={<XIcon />}
 
-                pageCount={123}
-                onPageChange={handlePageClick}
-                breakLabel="..."
-                nextLabel=">"
-                previousLabel="<"
-                pageRangeDisplayed={5}
-                renderOnZeroPageCount={null}
             />
+            {
+                (isLoading) ? <EventListSkeleton /> :
+                    (error) ? <p>Error: {error.message}</p> :
+                        (isSuccess && events) &&
+                        <>
+                            <EventList events={events?._embedded.events || []} />
+                            <ReactPaginate
+                                initialPage={currentPage ?? 0}
+                                className={styles.pagination}
+                                nextLinkClassName={styles.next}
+                                previousLinkClassName={styles.previous}
+                                pageLinkClassName={styles.page}
+                                activeLinkClassName={styles.activePage}
+                                disabledLinkClassName={styles.disabledPage}
+                                pageCount={20}
+                                onPageChange={handlePageClick}
+                                breakLabel="..."
+                                nextLabel=">"
+                                previousLabel="<"
+                                pageRangeDisplayed={3}
+                                renderOnZeroPageCount={null}
+                            />
+                        </>
+            }
         </>
 
     )

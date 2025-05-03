@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
-import { EventDetail } from '../components/event-detail/event-detail';
+import { EventDetail, EventDetailSkeleton } from '../components/event-detail/event-detail';
 import useEventStore from '../store/event-store';
 
 const EventsDetailPage = () => {
     const params = useParams<{ id: string }>();
-    const { event, error, isLoading, fetchEventById  }  = useEventStore();
+    const { event, error, isLoading, fetchEventById } = useEventStore();
 
     useEffect(() => {
         if (params.id) {
@@ -14,9 +14,9 @@ const EventsDetailPage = () => {
     }, [params.id, fetchEventById]);
 
     return (
-        (isLoading) ? <p>Cargando...</p> :
-        (error) ? <p>{error}</p> :
-        (event) && <EventDetail event={event} />
+        (isLoading) ? <EventDetailSkeleton /> :
+            (error) ? <p>{error}</p> :
+                (event) && <EventDetail event={event} />
     )
 }
 

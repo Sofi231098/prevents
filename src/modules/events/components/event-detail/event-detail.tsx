@@ -3,6 +3,7 @@ import styles from "./event-detail.module.css";
 import { EventType } from "../../types/event.types";
 import { FC } from "react";
 import { format } from "date-fns";
+import Skeleton from "react-loading-skeleton";
 
 interface EventDetailProps {
   event: EventType;
@@ -35,3 +36,12 @@ export const EventDetail: FC<EventDetailProps> = ({ event }) => {
     </>
   );
 };
+
+export const EventDetailSkeleton = () => {
+  return (
+    <>
+      <Skeleton height={350} borderRadius={16} />
+      <Skeleton height={400} borderRadius={16} style={{ marginTop: "1rem" }} />
+    </>
+  )
+}
