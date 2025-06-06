@@ -4,6 +4,7 @@ import { LikedEvents } from "@/modules/users/component/liked-events/liked-events
 import { MyInfo } from "@/modules/users/component/my-info/my-info";
 import UsersPage from "@/modules/users/page";
 import { ErrorBoundaryWrapper } from "@/shared/components";
+import { ErrorPage } from "@/shared/components/error/error";
 import Layout from "@/shared/layouts/layout";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import { QueryParamProvider } from "use-query-params";
@@ -51,7 +52,7 @@ const RoutesProvider = () =>
                             </ErrorBoundaryWrapper>
                         }
                     />
-                    <Route path="*" element={<h1>404</h1>} />
+                    <Route path="*" element={<ErrorPage />} />
                 </Route>
             </Routes>
         </QueryParamProvider>
