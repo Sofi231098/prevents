@@ -1,6 +1,7 @@
 export interface EventType {
     name: string;
     type: string;
+    info?: string;
     description: string;
     id: string;
     url: string;

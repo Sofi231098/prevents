@@ -3,7 +3,7 @@ import EventsPage from "@/modules/events/pages/events-page";
 import { LikedEvents } from "@/modules/users/component/liked-events/liked-events";
 import { MyInfo } from "@/modules/users/component/my-info/my-info";
 import UsersPage from "@/modules/users/page";
-import ErrorBoundary from "@/shared/components/error-boundary/error-boundary";
+import { ErrorBoundaryWrapper } from "@/shared/components";
 import Layout from "@/shared/layouts/layout";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import { QueryParamProvider } from "use-query-params";
@@ -15,9 +15,9 @@ const RoutesProvider = () =>
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route path="/" element={
-                        <ErrorBoundary fallback={<h1>Error loading event details</h1>}>
+                        <ErrorBoundaryWrapper fallback={<h1>Error loading event details</h1>}>
                             <EventsPage />
-                        </ErrorBoundary>
+                        </ErrorBoundaryWrapper>
                     }
                     />
                     <Route
@@ -29,26 +29,26 @@ const RoutesProvider = () =>
                         <Route
                             path="my-info"
                             element={
-                                <ErrorBoundary fallback={<h1>Error loading user profile</h1>}>
+                                <ErrorBoundaryWrapper fallback={<h1>Error loading user profile</h1>}>
                                     <MyInfo />
-                                </ErrorBoundary>
+                                </ErrorBoundaryWrapper>
                             }
                         />
                         <Route
                             path="liked-events"
                             element={
-                                <ErrorBoundary fallback={<h1>Error loading liked events</h1>}>
+                                <ErrorBoundaryWrapper fallback={<h1>Error loading liked events</h1>}>
                                     <LikedEvents />
-                                </ErrorBoundary>
+                                </ErrorBoundaryWrapper>
                             }
                         />
                     </Route>
                     <Route
                         path="detail/:id"
                         element={
-                            <ErrorBoundary fallback={<h1>Error loading event details</h1>}>
+                            <ErrorBoundaryWrapper fallback={<h1>Error loading event details</h1>}>
                                 <EventsDetailPage />
-                            </ErrorBoundary>
+                            </ErrorBoundaryWrapper>
                         }
                     />
                     <Route path="*" element={<h1>404</h1>} />

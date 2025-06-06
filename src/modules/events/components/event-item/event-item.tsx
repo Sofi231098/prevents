@@ -6,6 +6,7 @@ import { FC } from 'react';
 import { Link } from 'react-router';
 import { EventType } from '../../types/event.types';
 import styles from './event-item.module.css';
+import { toast } from 'sonner';
 
 interface EventItemProps {
     event: EventType;
@@ -26,6 +27,7 @@ export const EventItem: FC<EventItemProps> = ({ event }) => {
                         onClick={(e) => {
                             e.preventDefault();
                             removeLikedEvent(id);
+                            toast.success('Evento desmarcado como favorito');
                         }}
                         title='Desmarcar evento favorito'
                     >
@@ -38,6 +40,7 @@ export const EventItem: FC<EventItemProps> = ({ event }) => {
                         onClick={(e) => {
                             e.preventDefault();
                             addLikedEvent(event);
+                            toast.success('Evento marcado como favorito');
                         }}
                         title='Marcar evento como favorito'
                     >

@@ -1,9 +1,11 @@
+import ImageDefault from '@/assets/images/default.webp';
 import { SectionContainer } from "@/shared/components/section-container/section-container";
-import styles from "./event-detail.module.css";
-import { EventType } from "../../types/event.types";
-import { FC } from "react";
 import { format } from "date-fns";
+import { FC } from "react";
 import Skeleton from "react-loading-skeleton";
+import { EventType } from "../../types/event.types";
+import styles from "./event-detail.module.css";
+
 
 interface EventDetailProps {
   event: EventType;
@@ -23,14 +25,23 @@ export const EventDetail: FC<EventDetailProps> = ({ event }) => {
           <p>{format(event.dates.start.dateTime, "dd/MM/yyyy")}</p>
           <h3>{event.name}</h3>
           <p>
-            {event.pleaseNote}
+            {event?.info}
           </p>
-          <figure>
-            <img
-              src={event.seatmap.staticUrl}
-              title={event.seatmap.id}
-            />
-          </figure>
+          <p>
+            {event?.pleaseNote}
+          </p>
+          {
+            event?.seatmap?.staticUrl &&
+            <figure>
+              <img
+                src={event?.seatmap?.staticUrl}
+                title={event?.seatmap?.id}
+                onError={($event) => {
+                  $event.currentTarget.src = ImageDefault;
+                }}
+              />
+            </figure>
+          }
         </div>
       </SectionContainer>
     </>
