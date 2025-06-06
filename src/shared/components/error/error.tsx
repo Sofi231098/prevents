@@ -1,15 +1,28 @@
+import { useNavigate } from 'react-router';
 import { Button } from '../button/button';
 import styles from './error.module.css';
 
-export const ErrorPage = () => {
+interface ErrorProps {
+    title: string;
+    subtitle: string;
+    showButton?: boolean;
+}
+
+export const Error = ({ title, subtitle, showButton }: ErrorProps) => {
+
+    const navigate = useNavigate();
+
     return (
         <div className={styles.error}>
-            <h2>Esta página no existe.</h2>
-            <p>Lo sentimos, pero la página que estás buscando no se encuentra disponible.</p>
-            <Button className={styles.button}
-                variant="filled"
-                text='Volver al inicio'
-            />
+            <h2>{title}.</h2>
+            <p>{subtitle}</p>
+            {showButton &&
+                <Button className={styles.button}
+                    onClick={() => navigate('/')}
+                    variant="filled"
+                    text='Volver al inicio'
+                />
+            }
         </div>
     )
 }

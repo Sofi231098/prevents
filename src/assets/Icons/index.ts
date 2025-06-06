@@ -8,3 +8,4 @@ export { default as XIcon } from './XIcon.svg?react';
 export { default as Favorite } from './Favorite.svg?react';
 export { default as FavoriteMinus } from './FavoriteMinus.svg?react';
 export { default as Delete } from './Delete.svg?react';
+export { default as Save } from './Save.svg?react';

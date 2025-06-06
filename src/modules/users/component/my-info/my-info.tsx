@@ -6,6 +6,7 @@ import { toast } from 'sonner';
 import { useUserStore } from '../../store/user-store';
 import styles from './my-info.module.css';
 import { MyInfoSchema, schema } from './my-info.schema';
+import { Save } from '@/assets/Icons';
 
 export const MyInfo = () => {
 
@@ -74,6 +75,7 @@ export const MyInfo = () => {
                     {errors.description && <span className={styles.error}>{errors.description.message}</span>}
                 </div>
                 <Button
+                    Icon={<Save />}
                     variant="filled"
                     text='Guardar cambios'
                     type="submit"

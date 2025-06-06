@@ -1,5 +1,5 @@
 import { XIcon } from "@/assets/Icons";
-import { Input } from "@/shared/components";
+import { Error, Input } from "@/shared/components";
 import { useCallback, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import { NumberParam, StringParam, useQueryParam } from "use-query-params";
@@ -33,10 +33,14 @@ const EventsPage = () => {
             />
             {
                 (isLoading) ? <EventListSkeleton /> :
-                    (error) ? <p>Error: {error.message}</p> :
+                    (error) ? <Error
+                        title='Error al cargar los eventos'
+                        subtitle="No se pudieron obtener los eventos. Por favor, inténtalo de nuevo más tarde."
+                        showButton
+                    /> :
                         (isSuccess && events) &&
                         <>
-                            <EventList events={events?._embedded.events || []} />
+                            <EventList events={events?._embedded?.events || []} />
                             <ReactPaginate
                                 initialPage={currentPage ?? 0}
                                 className={styles.pagination}
