@@ -1,14 +1,16 @@
+import { XIcon } from "@/assets/Icons";
+import { Input } from "@/shared/components";
 import { useCallback, useEffect } from "react";
 import ReactPaginate from "react-paginate";
-import { NumberParam, useQueryParam } from "use-query-params";
+import { NumberParam, StringParam, useQueryParam } from "use-query-params";
 import { EventList, EventListSkeleton } from "../components/event-list/event-list";
 import { useEventsQuery } from "../queries/events.query";
 import styles from './paginate.module.css';
-import { Input } from "@/shared/components";
-import { XIcon } from "@/assets/Icons";
 
 const EventsPage = () => {
     const { data: events, isLoading, error, isSuccess } = useEventsQuery();
+
+    const [searchTerm, setSearchTerm] = useQueryParam('search', StringParam);
     const [currentPage, setCurrentPage] = useQueryParam('page', NumberParam)
 
     useEffect(() => {
@@ -24,9 +26,10 @@ const EventsPage = () => {
     return (
         <>
             <Input
-                placeholder='Search...'
+                placeholder='Buscar evento...'
                 Icon={<XIcon />}
-
+                value={searchTerm || ''}
+                onChange={(e) => setSearchTerm(e.target.value)}
             />
             {
                 (isLoading) ? <EventListSkeleton /> :
@@ -42,7 +45,7 @@ const EventsPage = () => {
                                 pageLinkClassName={styles.page}
                                 activeLinkClassName={styles.activePage}
                                 disabledLinkClassName={styles.disabledPage}
-                                pageCount={20}
+                                pageCount={events.page?.totalPages < 20 ? events.page.totalPages : 0}
                                 onPageChange={handlePageClick}
                                 breakLabel="..."
                                 nextLabel=">"

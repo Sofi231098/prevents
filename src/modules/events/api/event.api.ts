@@ -6,11 +6,12 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 
 class EventAPI {
 
-    getEvents = (page: number = 0) => {
+    getEvents = (page: number = 0, keyword: string = '') => {
         const params = new URLSearchParams({
             apikey: API_KEY,
-            countryCode: 'US',
+            countryCode: 'MX',
             page: String(page),
+            keyword: keyword,
         });
         return api.get<GetEventsResponse>(`events.json?${params}`);
     }

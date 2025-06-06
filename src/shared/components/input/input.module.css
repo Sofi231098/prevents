@@ -3,6 +3,8 @@
 }
 
 .input {
+    font: inherit;
+
     width: 100%;
     display: inline-flex;
     justify-content: space-between;

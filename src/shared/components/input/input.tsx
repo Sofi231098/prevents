@@ -1,4 +1,3 @@
-import { Button } from '../button/button';
 import styles from './input.module.css';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -20,7 +19,7 @@ export const Input: React.FC<InputProps> = ({
                 disabled={disabled}
                 {...props}
             />
-            {
+            {/* {
                 Icon &&
                 <Button
                     Icon={Icon}
@@ -29,8 +28,7 @@ export const Input: React.FC<InputProps> = ({
                     size='icon'
                     disabled={disabled}
                 />
-
-            }
+            } */}
         </div>
     )
 }

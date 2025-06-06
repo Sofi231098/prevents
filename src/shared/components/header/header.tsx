@@ -13,17 +13,23 @@ export const Header = () => {
         <header>
             <div className={styles.buttonsContainer}>
                 <Button
+                    title='Ir a mi perfil'
                     size={'icon'}
                     onClick={() => navigate('/profile/my-info')}
                     Icon={<User />}
                 />
                 <Button
+                    title='Cambiar tema'
                     size={'icon'}
                     onClick={toggleTheme}
                     Icon={theme === "light" ? <DarkMode /> : <LightMode />}
                 />
             </div>
-            <Link to='/' className={styles.titleContainer}>
+            <Link
+                title='Ir a la página principal'
+                to='/'
+                className={styles.titleContainer}
+            >
                 <figure>
 
                 </figure>

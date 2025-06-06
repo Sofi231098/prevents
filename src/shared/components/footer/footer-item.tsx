@@ -13,6 +13,7 @@ export const FooterItem: FC<FooterItemProps> = ({ name, github, linkedin }) => {
         <article className={styles.footerItem}>
             <div>
                 <a
+                    title='Github'
                     href={github}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -21,6 +22,7 @@ export const FooterItem: FC<FooterItemProps> = ({ name, github, linkedin }) => {
                     <Github />
                 </a>
                 <a
+                    title='LinkedIn'
                     href={linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
