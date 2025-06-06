@@ -7,7 +7,9 @@ const button = cva(styles.base, {
     variants: {
         variant: {
             default: styles.default,
-            ghost: styles.ghost
+            ghost: styles.ghost,
+            filled: styles.filled,
+            outline: styles.outline,
         },
         size: {
             default: styles.sizeDefault,

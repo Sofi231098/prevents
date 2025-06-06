@@ -45,7 +45,7 @@ const EventsPage = () => {
                                 pageLinkClassName={styles.page}
                                 activeLinkClassName={styles.activePage}
                                 disabledLinkClassName={styles.disabledPage}
-                                pageCount={events.page?.totalPages < 20 ? events.page.totalPages : 0}
+                                pageCount={events.page?.totalPages < 20 ? events.page.totalPages : 20}
                                 onPageChange={handlePageClick}
                                 breakLabel="..."
                                 nextLabel=">"

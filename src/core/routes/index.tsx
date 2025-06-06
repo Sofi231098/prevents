@@ -1,5 +1,6 @@
 import EventsDetailPage from "@/modules/events/pages/events-detail-page";
 import EventsPage from "@/modules/events/pages/events-page";
+import { MyInfo } from "@/modules/users/component/my-info/my-info";
 import UsersPage from "@/modules/users/page";
 import ErrorBoundary from "@/shared/components/error-boundary/error-boundary";
 import Layout from "@/shared/layouts/layout";
@@ -28,7 +29,7 @@ const RoutesProvider = () =>
                             path="my-info"
                             element={
                                 <ErrorBoundary fallback={<h1>Error loading user profile</h1>}>
-                                    <h2>My Info</h2>
+                                    <MyInfo />
                                 </ErrorBoundary>
                             }
                         />

@@ -1,26 +1,21 @@
-.container {
-    position: relative;
-}
-
-.input {
+.textarea {
     font: inherit;
 
     width: 100%;
-    display: inline-flex;
-    justify-content: space-between;
-    border-radius: 100px;
-    padding-inline: 1rem;
-    height: 2.3rem;
+    min-height: 100px;
+    padding: 1rem;
+    border-radius: 1rem;
 
-    color: var(--foreground);
+    resize: none;
+
     background-color: transparent;
+    color: var(--foreground);
     border: 1px solid var(--secondary);
     transition: border 300ms ease, box-shadow 100ms ease-in;
 
     &::placeholder {
         color: var(--muted);
     }
-
 
     &:focus {
         box-shadow: 0px 0px 4px 0px var(--ring);
@@ -37,10 +32,4 @@
         border: 1px solid #fa2549;
         box-shadow: 0px 0px 4px 0px #fa2549;
     }
-}
-
-.icon {
-    position: absolute;
-    right: 1rem;
-    top: 4px;
 }

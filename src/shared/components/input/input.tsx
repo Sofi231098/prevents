@@ -2,6 +2,7 @@ import styles from './input.module.css';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     Icon?: React.ReactNode;
+    hasError?: boolean;
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -17,6 +18,7 @@ export const Input: React.FC<InputProps> = ({
                 id={id}
                 className={`${styles.input} ${className}`}
                 disabled={disabled}
+                data-has-error={props.hasError ? 'true' : 'false'}
                 {...props}
             />
             {/* {
