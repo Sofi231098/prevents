@@ -5,3 +5,6 @@ export { default as Loader } from './Loader.svg?react';
 export { default as User } from './User.svg?react';
 export { default as LinkedIn } from './Linkedin.svg?react';
 export { default as XIcon } from './XIcon.svg?react';
+export { default as Favorite } from './Favorite.svg?react';
+export { default as FavoriteMinus } from './FavoriteMinus.svg?react';
+export { default as Delete } from './Delete.svg?react';

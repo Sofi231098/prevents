@@ -1,5 +1,6 @@
 import EventsDetailPage from "@/modules/events/pages/events-detail-page";
 import EventsPage from "@/modules/events/pages/events-page";
+import { LikedEvents } from "@/modules/users/component/liked-events/liked-events";
 import { MyInfo } from "@/modules/users/component/my-info/my-info";
 import UsersPage from "@/modules/users/page";
 import ErrorBoundary from "@/shared/components/error-boundary/error-boundary";
@@ -37,7 +38,7 @@ const RoutesProvider = () =>
                             path="liked-events"
                             element={
                                 <ErrorBoundary fallback={<h1>Error loading liked events</h1>}>
-                                    <h2>Liked Events</h2>
+                                    <LikedEvents />
                                 </ErrorBoundary>
                             }
                         />

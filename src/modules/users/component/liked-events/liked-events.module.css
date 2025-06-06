@@ -1,0 +1,14 @@
+.empty {
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+
+    background:
+        linear-gradient(var(--background), var(--background)) padding-box,
+        linear-gradient(to bottom, var(--secondary), rgba(0, 0, 0, 0)) border-box;
+    border: 1px solid transparent;
+
+    &>p {
+        opacity: .5;
+    }
+}

@@ -10,6 +10,7 @@ export const Input: React.FC<InputProps> = ({
     Icon,
     className,
     disabled,
+    hasError,
     ...props
 }) => {
     return (
@@ -18,7 +19,7 @@ export const Input: React.FC<InputProps> = ({
                 id={id}
                 className={`${styles.input} ${className}`}
                 disabled={disabled}
-                data-has-error={props.hasError ? 'true' : 'false'}
+                data-has-error={hasError ? 'true' : 'false'}
                 {...props}
             />
             {/* {

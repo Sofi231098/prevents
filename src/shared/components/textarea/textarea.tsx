@@ -7,12 +7,13 @@ interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement
 
 export const Textarea: React.FC<TextareaProps> = ({
     className,
+    hasError,
     ...props
 }) => {
     return (
         <textarea
             className={`${styles.textarea} ${className}`}
-            data-has-error={props.hasError ? 'true' : 'false'}
+            data-has-error={hasError ? 'true' : 'false'}
             {...props}
         />
     )

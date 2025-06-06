@@ -1,5 +1,12 @@
-.link{
+.link {
     text-decoration: none;
+    position: relative;
+
+    &>button {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+    }
 }
 
 .item {
