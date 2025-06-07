@@ -16,10 +16,27 @@
     align-items: center;
     justify-content: center;
 
-    &>figure {
+    &>div:first-child {
         aspect-ratio: 1/1;
-        background-color: var(--ring);
+        border: 1px solid var(--ring);
+        box-shadow: 0 0 5px var(--ring);
+
         height: 4rem;
         border-radius: .5rem;
+        padding: .5rem;
+
+
+        &>svg {
+            filter: drop-shadow(0 0 5px var(--ring));
+            animation: scale 1.5s infinite;
+
+            & line {
+                stroke: var(--ring);
+            }
+
+            & path {
+                stroke: var(--ring);
+            }
+        }
     }
 }

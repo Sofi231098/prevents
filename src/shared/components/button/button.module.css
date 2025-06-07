@@ -73,11 +73,12 @@
 }
 
 .filled {
+    --foreground: color-mix(in srgb, var(--ring), #fff 90%);
+    
     background-color: var(--ring);
     box-shadow: 0px 0px 8px 0px var(--ring);
 
-
-    color: color-mix(in srgb, var(--ring), #fff 90%);
+    color: var(--foreground);
     border: none;
     transition: border 300ms ease, box-shadow 100ms ease-in, background-color 150ms ease-in;
 
@@ -88,6 +89,12 @@
 
     &:active {
         background-color: color-mix(in srgb, var(--ring), #000 20%);
+    }
+
+    &:has(svg) {
+        &>svg {
+            fill: var(--foreground);
+        }
     }
 }
 

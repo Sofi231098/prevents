@@ -1,4 +1,4 @@
-import { DarkMode, LightMode, User } from '@/assets/Icons';
+import { DarkMode, LightMode, Ticket, User } from '@/assets/Icons';
 import { useTheme } from '@/shared/hooks/useTheme';
 import { Button } from '../button/button';
 import styles from './header.module.css';
@@ -30,9 +30,9 @@ export const Header = () => {
                 to='/'
                 className={styles.titleContainer}
             >
-                <figure>
-
-                </figure>
+                <div>
+                    <Ticket />
+                </div>
                 <div>
                     <h1 className={styles.title}>Prevents</h1>
                     <p>Entérate de los últimos eventos.</p>

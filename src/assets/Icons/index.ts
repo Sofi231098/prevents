@@ -9,3 +9,4 @@ export { default as Favorite } from './Favorite.svg?react';
 export { default as FavoriteMinus } from './FavoriteMinus.svg?react';
 export { default as Delete } from './Delete.svg?react';
 export { default as Save } from './Save.svg?react';
+export { default as Ticket } from './Ticket.svg?react';

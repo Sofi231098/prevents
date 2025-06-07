@@ -57,6 +57,7 @@ const EventsPage = () => {
                                 pageCount={events.page?.totalPages < 20 ? events.page.totalPages : 20}
                                 onPageChange={handlePageClick}
                                 breakLabel="..."
+                                breakClassName={styles.break}
                                 nextLabel=">"
                                 previousLabel="<"
                                 pageRangeDisplayed={3}
