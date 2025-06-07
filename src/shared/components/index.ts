@@ -1,4 +1,5 @@
 export * from './button/button';
+export * from './debounce-input/debounce-input';
 export * from './error-boundary/error-boundary-wrapper';
 export * from './error-boundary/error-boundary';
 export * from './error/error-page';

@@ -1,5 +1,6 @@
 import { XIcon } from "@/assets/Icons";
-import { Error, Input } from "@/shared/components";
+import { Error, InputValue } from "@/shared/components";
+import { DebounceInput } from "@/shared/components/debounce-input/debounce-input";
 import { useCallback, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import { NumberParam, StringParam, useQueryParam } from "use-query-params";
@@ -11,13 +12,16 @@ const EventsPage = () => {
     const { data: events, isLoading, error, isSuccess } = useEventsQuery();
 
     const [searchTerm, setSearchTerm] = useQueryParam('search', StringParam);
-    const [currentPage, setCurrentPage] = useQueryParam('page', NumberParam)
+    const [currentPage, setCurrentPage] = useQueryParam('page', NumberParam);
+
+    const handleDebouncedChange = useCallback((value: InputValue) => {
+        const newValue = String(value).trim();
+        setSearchTerm(newValue === '' ? null : newValue);
+    }, [setSearchTerm]);
 
     useEffect(() => {
-        if (currentPage === undefined) {
-            setCurrentPage(0, "replace");
-        }
-    }, [currentPage, setCurrentPage]);
+        if (currentPage === undefined || currentPage === null) setCurrentPage(0);
+    }, []);
 
     const handlePageClick = useCallback(({ selected }: { selected: number }) => {
         setCurrentPage(selected);
@@ -25,11 +29,12 @@ const EventsPage = () => {
 
     return (
         <>
-            <Input
+            <DebounceInput
+                type="search"
                 placeholder='Buscar evento...'
                 Icon={<XIcon />}
                 value={searchTerm || ''}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onDebouncedChange={handleDebouncedChange}
             />
             {
                 (isLoading) ? <EventListSkeleton /> :
@@ -42,7 +47,7 @@ const EventsPage = () => {
                         <>
                             <EventList events={events?._embedded?.events || []} />
                             <ReactPaginate
-                                initialPage={currentPage ?? 0}
+                                initialPage={currentPage || 0}
                                 className={styles.pagination}
                                 nextLinkClassName={styles.next}
                                 previousLinkClassName={styles.previous}

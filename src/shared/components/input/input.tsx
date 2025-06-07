@@ -1,9 +1,11 @@
 import styles from './input.module.css';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     Icon?: React.ReactNode;
     hasError?: boolean;
 }
+
+export type InputValue = React.InputHTMLAttributes<HTMLInputElement>['value'];
 
 export const Input: React.FC<InputProps> = ({
     id,
