@@ -22,7 +22,10 @@ export const EventDetail: FC<EventDetailProps> = ({ event }) => {
       </section>
       <SectionContainer title="DESCRIPCIÓN">
         <div className={styles.description}>
-          <p>{format(event.dates.start.dateTime, "dd/MM/yyyy")}</p>
+          {
+            event.dates.start.localDate &&
+            <p>{format(event.dates.start.localDate, "dd/MM/yyyy")}</p>
+          }
           <h3>{event.name}</h3>
           <p>
             {event?.info}

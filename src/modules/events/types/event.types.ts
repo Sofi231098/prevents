@@ -18,6 +18,7 @@ export interface Dates {
 export interface Start {
     localTime: string;
     dateTime: Date;
+    localDate: Date;
 }
 
 export interface Image {
